@@ -6,7 +6,7 @@
 //1. we will be reading, writing , updating , deleting files from our script
 
 const fs = require('fs')
-const path = require('path')
+const path = require('path') // 
 
 // let content = fs.readFileSync('f1.txt') // readFileSync is a method top read a file
 // console.log('This is F1 data-> '+ content)
@@ -77,7 +77,7 @@ let srcFilePath = 'D:\\FJP2 Dev\\Node Modules\\myDirectory\\f3.txt'
 let destFolder = 'D:\\FJP2 Dev\\Node Modules\\myDirectory2\\'
 
 let tobecopiedFileName = path.basename(srcFilePath)
-console.log(tobecopiedFileName)
+console.log(tobecopiedFileName) // f3.txt
 // basename method gets the actual name of the file or directory
 
 let destPath = path.join(destFolder , tobecopiedFileName)
