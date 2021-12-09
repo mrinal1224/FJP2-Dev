@@ -7,6 +7,9 @@
     <title>Document</title>
     <style>
         /* children selector */
+        div>h1>span {
+            color : blue;
+        }
         
     </style>
 </head>
@@ -16,16 +19,16 @@
     <!-- select "I'm the direct son" and make it blue -->
 
     <div>
-        <p>
+        <h1>
             <span>I'm the direct son</span>
-        </p>
+        </h1>
     </div>
 
     <div>
         <span>
-            <p>
+            <h1>
                 <span>I'm the indirect son</span>
-            </p>
+            </h1>
         </span>
     </div>
 
