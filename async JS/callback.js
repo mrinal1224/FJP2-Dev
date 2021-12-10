@@ -1,25 +1,25 @@
 
 const fs = require('fs')
-// function printFirstName(firstName , cb){
-//        console.log(firstName)
-//        cb("Sain")
-// }
+function printFirstName(firstName , cb){
+       console.log(firstName)
+       cb("Sain")
+}
 
 
 
-// function printLastName(lastName){
-//        console.log(lastName)
-// }
+function printLastName(lastName){
+       console.log(lastName)
+}
 
 
-// printFirstName("Mohit" , printLastName)
+ printFirstName("Mohit" , printLastName)
 
 
 //Any function that is passed as an argument to another function
 // any function that is called after a function has finished executing
 
 
-// Synchhronus way of reading file
+//Synchhronus way of reading file
 // console.log('Before')
 // let data = fs.readFileSync("f1.txt")
 // console.log(" "+ data)
@@ -28,19 +28,19 @@ const fs = require('fs')
 
 
 // Asynchronus way of reading File
-// console.log("before")
+console.log("before")
 
-// fs.readFile("f1.txt" , cb)
+fs.readFile("f1.txt" , cb)
+// error first callbacks
+function cb(err , data){
+       if(err){
+              console.log(err)
+       }
 
-// function cb(err , data){
-//        if(err){
-//               console.log(err)
-//        }
+       console.log(""+data)
+}
 
-//        console.log(""+data)
-// }
-
-// console.log("after")
+console.log("after")
 
 
 
