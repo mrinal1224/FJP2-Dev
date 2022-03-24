@@ -14,6 +14,8 @@ fs.readFile('f1.txt' , cb)
 
 fs.readFile('f2.txt' , cb2)
 
+
+
 function cb(err , data){
        if(err){
               console.log(err)
@@ -21,6 +23,8 @@ function cb(err , data){
        else{
               console.log('File data - >' + data)
        }
+
+       
 }
 
 
