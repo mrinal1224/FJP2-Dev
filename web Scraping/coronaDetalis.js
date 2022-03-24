@@ -24,8 +24,7 @@ function handleHtml(html) {
   //        console.log('data' , data)
   //  }
   let totalCases = selTool(contentArr[0]).text(); // cases
-  let totalDeaths = selTool(contentArr[1]).text(); // cases
-  let totalRecoveries = selTool(contentArr[2]).text(); // cases
+   // cases
   console.log("Total Cases", totalCases);
   console.log("Totals Deaths", totalDeaths);
   console.log("Total Recoverd", totalRecoveries);
