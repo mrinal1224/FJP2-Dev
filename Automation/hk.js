@@ -51,8 +51,14 @@ browserWillbeOpenedPromise
     return algoSectionClickedPromise;
   })
   .then(function () {
-    console.log("Algo section clicked");
-  });
+        let clickWarmupPromise = waitandClick("input[value='warmup']" , page)
+        return clickWarmupPromise
+  }).then(function(){
+    let allChallengesPromise = page.$$('.ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled' , {delay:50})
+    return allChallengesPromise
+  }).then(function(questions){
+    console.log('No of question' , questions.length )
+  })
 
 function waitandClick(selector, cPage) {
   return new Promise(function (resolve, reject) {
