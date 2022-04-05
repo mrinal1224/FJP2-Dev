@@ -3,6 +3,8 @@ const puppeteer = require("puppeteer");
 let email = "vovis11314@procowork.com";
 let password = "pepcoding123";
 
+const codeFile = require('./code')
+
 let page;
 
 const hackerRankLink = "https://www.hackerrank.com/auth/login";
@@ -57,8 +59,22 @@ browserWillbeOpenedPromise
     let allChallengesPromise = page.$$('.ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled' , {delay:50})
     return allChallengesPromise
   }).then(function(questions){
-    console.log('No of question' , questions.length )
+    //console.log('No of question' , questions.length )
+
+    let questionWillBeSolvedPromise = questionSolver(page , questions[0] , codeFile.answers[0])
+    return questionWillBeSolvedPromise
+
+
   })
+
+
+
+
+
+
+
+
+
 
 function waitandClick(selector, cPage) {
   return new Promise(function (resolve, reject) {
@@ -76,4 +92,15 @@ function waitandClick(selector, cPage) {
         reject();
       });
   });
+}
+
+
+
+function questionSolver(page , questionIdx , answerIdx){
+        return new Promise(function(resolve , reject){
+          let questionWillbeClicked = questionIdx.click()
+          questionWillbeClicked.then(function(){
+            return waitandClick('.checkbox-input' , page)
+          })
+        })
 }
