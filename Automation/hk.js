@@ -96,11 +96,48 @@ function waitandClick(selector, cPage) {
 
 
 
-function questionSolver(page , questionIdx , answerIdx){
+function questionSolver(page , question , answer){
         return new Promise(function(resolve , reject){
-          let questionWillbeClicked = questionIdx.click()
+          let questionWillbeClicked = question.click()
           questionWillbeClicked.then(function(){
-            return waitandClick('.checkbox-input' , page)
+           let selectEditorPromsie = waitandClick('.monaco-editor.no-user-select .vs' , page)
+           return selectEditorPromsie
+          }).then(function(){
+            return waitandClick(".checkbox-input", page);
+          }).then(function(){
+            return page.type(' .text-area.custominput ' , answer , {delay : 20}  )
+          }).then(function(){
+            let ctrlOnHoldPromise = page.keyboard.down('Control' , {delay : 20})
+            return ctrlOnHoldPromise
+          }).then(function(){
+            let AisPressedPromise = page.keyboard.press('A' , {delay : 20})
+            return AisPressedPromise
+          }).then(function(){
+            let XisPressedPromise = page.keyboard.press('X' , {delay : 20})
+            return XisPressedPromise
+          }).then(function(){
+            let ctrlisReleased = page.keyboard.up('Control' , {delay : 20})
+            return ctrlisReleased
+          }).then(function(){
+            let mainEditorOnFocus = waitandClick('.monaco-editor.no-user-select .vs' , page)
+            return mainEditorOnFocus
+          }).then(function(){
+            let ctrlOnHoldPromise = page.keyboard.down('Control' , {delay : 20})
+            return ctrlOnHoldPromise
+          }).then(function(){
+            let AisPressedPromise = page.keyboard.press('A' , {delay : 20})
+            return AisPressedPromise
+          }).then(function(){
+            let VisPressedPromise = page.keyboard.press('V' , {delay:20})
+            return VisPressedPromise
+          }).then(function(){
+            let ctrlisReleased = page.keyboard.up('Control' , {delay : 20})
+            return ctrlisReleased
+          }).then(function(){
+            return page.click(' .hr-monaco__run-code' , {delay:20})
+          }).catch(function(err){
+            console.log(err)
           })
-        })
+        
+      })
 }
